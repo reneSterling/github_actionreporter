@@ -1,1 +1,30 @@
+name: running scripts automatically
 
+on: 
+  push: 
+    branches: [main]
+
+  workflow_dispatch: #this key allows manual runs from the github user interface
+
+jobs: 
+  run-script: 
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: cloning github
+        uses: actions/checkout@v4
+
+      - name: installing python
+        uses: actions/setup-python@v5 
+        with: 
+          python-version: '3.11'
+
+      - name: running python 
+        run: python action_reporter.py
+
+      - name: running backup script
+        run: bash backup.sh 
+
+
+
+        
