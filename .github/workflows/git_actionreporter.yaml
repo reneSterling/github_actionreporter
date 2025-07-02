@@ -29,8 +29,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: reports
-          path: report.txt
-
+          path: output_report.txt
 
 
         
